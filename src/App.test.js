@@ -51,16 +51,15 @@ test('displays an app bar on the screen', () => {
 
 test('displays a home and login button', () => {
   render(<SearchAppBar />)
-  const homeButton = screen.getByRole('button', {name: /home/i})
+  const homeButton = screen.getByRole('link', {name: /home/i})
   expect(homeButton).toBeInTheDocument();
-  const loginButton = screen.getByRole('button', {name: /login/i})
+  const loginButton = screen.getByRole('link', {name: /login/i})
   expect(loginButton).toBeInTheDocument();
 });
 
 test('displays a movie on the home page', async () => {
   render(<App />)
   const movieCard = await screen.findByRole("heading", {name: /Guardians of the Galaxy Vol. 2/i})
-  screen.debug()
 })
 
 // As a user, when I view the web site I see a list of movies to Browse anonymously

@@ -15,12 +15,12 @@ function App() {
     let mounted = true;
 
     async function getMovieData() {
+      let response = await fetch("http://localhost:3001/movies");
+      let json = await response.json();
+      
+      //do something with data
+      //console.log("JSON Data: ", json)
       if (mounted) {
-        let response = await fetch("http://localhost:3001/movies");
-        let json = await response.json();
-
-        //do something with data
-        //console.log("JSON Data: ", json)
         setMovieData(json);
       }
     }
@@ -32,17 +32,15 @@ function App() {
     };
   }, []);
 
-  //let movieData =
-
   return (
     <Router>
+      <SearchAppBar title="GMDB" />
       <Switch>
         <Route path="/login">
           <LoginPage />
         </Route>
         <Route path="/">
           <div>
-            <SearchAppBar title="GMDB" />
             <Box
               sx={{
                 p: 1,
