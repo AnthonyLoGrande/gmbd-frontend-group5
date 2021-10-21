@@ -7,12 +7,12 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 
 export default function ImgMediaCard({movie}) {
-  console.log("Movie: ", movie)
+  // console.log("Movie: ", movie)
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Card>
       <CardMedia
         component="img"
-        alt="green iguana"
+        alt={movie.title}
         height="140"
         image={movie.poster}
       />
